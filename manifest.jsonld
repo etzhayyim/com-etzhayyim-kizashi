@@ -1,0 +1,226 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://etzhayyim.com/ns/actor-manifest"
+  ],
+  "@type": "ActorManifest",
+  "id": "did:web:kizashi.etzhayyim.com",
+  "name": "kizashi",
+  "displayName": "兆 — Non-invasive Multimodal Body-Scan / Sign-Sensing",
+  "displayNameJa": "兆",
+  "displayNameEn": "Kizashi",
+  "description": "Non-profit religious-corp non-invasive multimodal body-scan / sign-sensing substrate — the 'futuristic scan pod' sensing/instrument layer of the L4 Care Tier. Senses physical-burden SIGNS (腰痛 posture/筋, 肩こり 筋硬度/血流, 鼻詰まり 構造/気流, アレルギー via consented microsampling, 炎症 thermal/biomarker) via multimodal capture → fusion → PROBABILISTIC NON-DIAGNOSTIC attribution + self-referenced Wellbecoming trajectory + triage referral. kizashi SENSES → mitate DIAGNOSES → iyashi TREATS. NON-DIAGNOSTIC (G3, 医師法 §17). Medical-device regulatory boundary (G4, 薬機法/SaMD — R0..R2 software+simulation+non-ionizing non-regulated only; regulated/ionizing modalities R3-gated). Encrypted biometric envelope MANDATORY (G2, 要配慮 PII per ADR-2605181100). Verified-modality-only / anti-pseudoscience (G10; bio-resonance/aura/波動 EXCLUDED). Self-referenced Wellbecoming (G8; no population ranking). Murakumo-only inference (G14). 6 cells / 6 Lexicons / 14 gates / 12 non-goals. Cross-actor: mitate (sign→diagnosis) / iyashi (clinical) / kokoro (psychosocial) / yakushi (medication via iyashi) / hagukumi (consent) / chigiri (consent+steward) / toritate (Public Fund grant) / manabi (operator training).",
+  "descriptionJa": "非営利 religious-corp の非侵襲マルチモーダル身体スキャン / 兆候センシング substrate — 未来的「スキャンポッド」の sensing/instrument 層 (L4 Care Tier)。身体的負担の兆候 (腰痛 姿勢/筋, 肩こり 筋硬度/血流, 鼻詰まり 構造/気流, アレルギー consented microsampling 経由, 炎症 thermal/biomarker) を マルチモーダル取得 → 融合 → 確率的・非診断的 attribution + 自己参照 Wellbecoming 軌跡 + triage 紹介。kizashi が兆候を感知 → mitate が診断 → iyashi が治療。非診断 (G3, 医師法 §17)。医療機器規制境界 (G4, 薬機法/SaMD — R0..R2 は software+simulation+非電離・非規制 のみ; 規制/電離 modality は R3 gated)。暗号化エンベロープ必須 (G2; 生体スキャン = 要配慮個人情報)。検証済み modality のみ / 反疑似科学 (G10; bio-resonance/aura/波動 除外)。自己参照 Wellbecoming (G8; 集団ランキングなし)。Murakumo only inference (G14)。",
+  "adr": {
+    "master": "etzhayyim:adr:2605312700",
+    "parent": "etzhayyim:adr:2605261000",
+    "r0": "etzhayyim:adr:2605312700",
+    "r1": "reserved",
+    "r2": "reserved",
+    "r3": "reserved"
+  },
+  "tier": "Tier-B",
+  "parentActor": null,
+  "liberationLadderGate": "L4",
+  "roleInTier": "sensing/instrument layer — UPSTREAM of all clinical adjudication (kizashi senses → mitate diagnoses → iyashi treats)",
+  "siblingsAtL4": [
+    "did:web:mitate.etzhayyim.com (diagnostic routing — TIGHT pair)",
+    "did:web:iyashi.etzhayyim.com (clinical care provider)",
+    "did:web:kokoro.etzhayyim.com (mental health support)",
+    "did:web:yakushi.etzhayyim.com (pharmaceutical manufacturing)",
+    "did:web:hagukumi.etzhayyim.com (daily-living care)"
+  ],
+  "crossActorPair": {
+    "mitate": "TIGHT pair — sign → diagnosis; kizashi senses, mitate (licensed clinician) reads; G5 emergency keyword shared",
+    "iyashi": "clinical-encounter referral after sign-sensing",
+    "kokoro": "psychosocial referral — pain (腰痛/肩こり) is multifactorial; biopsychosocial routing",
+    "yakushi": "medication supply via iyashi only (kizashi never prescribes)",
+    "hagukumi": "minor / elder / incapacitated consent + daily-living continuity",
+    "chigiri": "consentRecord (scan consent) + stewardLaborAttestation (operator L5 vocation-flow)",
+    "toritate": "Public Fund grant accounting (no fee-for-scan, G13)",
+    "manabi": "operator training + capability-ledger evidence-grade literacy"
+  },
+  "form": "任意団体 internal non-invasive sensing/screening substrate (NOT 一般社団 / NPO / 公益財団 / 宗教法人 法人格 — Preamble §0.4 Lv7+ unanimity lock)",
+  "privacyInvariant": {
+    "encryptedEnvelope": "MANDATORY per ADR-2605181100; structural Lexicon enforcement at R1 (scanSessionAttestation + modalityObservation + wellbecomingTrajectory MUST carry encryptedPayloadCid; additionalProperties=false). Biometric scan = 要配慮個人情報 (APPI special-care).",
+    "rotatingPseudonym": "30-day rotating pseudonym DID per ADR-2605181200 (scan features ≠ stable identity; no biometric-identity database, N10)",
+    "noPlaintextFeatures": "signal_fusion holds fused features transient-only; never write plaintext feature vectors to disk",
+    "rationale": "Biometric scan data is 要配慮 PII and the most sensitive observation class alongside clinical PHI; structural enforcement, not policy."
+  },
+  "constitutionalDiscipline": {
+    "nonDiagnostic": "G3 — 医師法 §17 boundary; outputs 兆候 + probabilistic attribution + consult recommendation ONLY; never diagnosis/treatment/adjudication; licensed clinician (mitate/iyashi) owns any diagnosis",
+    "medicalDeviceBoundary": "G4 — 薬機法/PMDA/SaMD; R0..R2 = software + simulation + non-ionizing non-regulated sensing only; regulated/energy-emitting modalities gated to licensed-device pathway + qualified operator + Council Lv7+ (R3)",
+    "verifiedModalityOnly": "G10 — only modalities in modalityCapability ledger with declared evidence grade may emit; bio-resonance / aura / 全身波動 / quantum scanners EXCLUDED",
+    "selfReferencedWellbecoming": "G8 — compare to member's OWN prior trajectory; no population ranking / health-score leaderboard (anti-individualist 動的軌跡)",
+    "uncertaintyHonest": "G7 — every attribution carries calibrated confidence + 所見≠確定原因 disclaimer; structural",
+    "noCommercialImagingCloud": "G12 — PACS / diagnostic-SaaS / commercial imaging-AI cloud PROHIBITED (Charter Rider §2(e)+§2(c)); kotoba-native",
+    "noPayrollForOperators": "G13 — operators are vocation-flow L5 stewards; toritate.ledgerEntry.category excludes payroll/wage/salary/bonus/commission",
+    "murakumoOnlyInference": "G14 — Murakumo-only inference per ADR-2605215000; vendor medical-AI PROHIBITED"
+  },
+  "modalityCapabilityLedgerSeed": "registry/modalities.seed.json — 14 modalities (11 sensing + MRI/CT referral marker + 3 grade-X excluded pseudoscience); each binds evidenceGrade + regulatoryClass + canDetect/cannotDetect + ionizing + phaseGate; all verificationStatus=unverified-seed (G10 Council-ratify before R1 emission). R0..R2 may use ONLY phaseGate∈{R1,R2} + non-regulated-wellness + ionizing=false (optical-posture-3d / markerless-gait / infrared-thermography / bioimpedance).",
+  "scope": {
+    "phase": "R0 scaffold",
+    "scopeBoundary": "Non-invasive multimodal capture → fusion → probabilistic non-diagnostic attribution → self-referenced Wellbecoming trajectory → triage referral; modality capability ledger",
+    "exclusions": [
+      "diagnosis (mitate + licensed clinician)",
+      "treatment (iyashi + yakushi)",
+      "allergen identification by imaging (biochemistry; microsampling only, not 'scanning' allergens)",
+      "replacement for clinical MRI/CT/PET in licensed facilities",
+      "population health-score / ranking / leaderboard",
+      "法定健診 / statutory health-check / insurance product",
+      "commercial wellness-pod product (no SaaS sale)",
+      "pseudoscience modalities (bio-resonance / aura / 波動 / quantum)",
+      "involuntary / surveillance scanning",
+      "biometric-identity database",
+      "genetic testing",
+      "minors / incapacitated without guardian + hagukumi consent"
+    ]
+  },
+  "cells": [
+    {
+      "name": "scan_session",
+      "module": "kotodama.cells.kizashi_scan_session",
+      "murakumoNode": "naphtali",
+      "phase": "session",
+      "io": "memberDid + scanConsentCid → scanSessionAttestation (encrypted; orchestrates per-modality capture)"
+    },
+    {
+      "name": "signal_fusion",
+      "module": "kotodama.cells.kizashi_signal_fusion",
+      "murakumoNode": "gad",
+      "phase": "session",
+      "io": "[modalityObservation] → fused transient feature vector (encrypted; no plaintext persistence)"
+    },
+    {
+      "name": "attribution",
+      "module": "kotodama.cells.kizashi_attribution",
+      "murakumoNode": "gad",
+      "phase": "session",
+      "io": "fused features → attributionReport (probabilistic, non-diagnostic; G3 + G7 structural)",
+      "crossActorPair": "mitate (sign → diagnosis)"
+    },
+    {
+      "name": "wellbecoming_track",
+      "module": "kotodama.cells.kizashi_wellbecoming_track",
+      "murakumoNode": "gad",
+      "phase": "longitudinal",
+      "io": "prior scans of same member → wellbecomingTrajectory (encrypted; self-referenced delta, G8)"
+    },
+    {
+      "name": "triage_referral",
+      "module": "kotodama.cells.kizashi_triage_referral",
+      "murakumoNode": "naphtali",
+      "phase": "event",
+      "io": "attributionReport → triageReferral (routes to mitate/iyashi/kokoro; G5 red-flag emergency)",
+      "crossActorPair": "mitate / iyashi / kokoro (emergency keyword)"
+    },
+    {
+      "name": "modality_registry",
+      "module": "kotodama.cells.kizashi_modality_registry",
+      "murakumoNode": "asher",
+      "phase": "event/annual",
+      "io": "modality audit → modalityCapability (PUBLIC kotoba-EAVT; evidence grade + regulatory class; G10)"
+    }
+  ],
+  "lexiconNamespaces": [
+    "com.etzhayyim.kizashi.scanSessionAttestation",
+    "com.etzhayyim.kizashi.modalityObservation",
+    "com.etzhayyim.kizashi.attributionReport",
+    "com.etzhayyim.kizashi.wellbecomingTrajectory",
+    "com.etzhayyim.kizashi.triageReferral",
+    "com.etzhayyim.kizashi.modalityCapability"
+  ],
+  "constitutionalGates": {
+    "description": "14 immutable gates per ADR-2605312700. Council Lv6+ supermajority + new ADR to amend.",
+    "gates": {
+      "G1": "Charter Rider §2(a)-(h) scan on every emitted document",
+      "G2": "Encrypted envelope MANDATORY (biometric scan = 要配慮 PII per ADR-2605181100); encryptedPayloadCid required, plaintext rejected at schema layer",
+      "G3": "NON-DIAGNOSTIC (医師法 §17) — 兆候 + probabilistic attribution + consult recommendation ONLY; never diagnosis/treatment/adjudication",
+      "G4": "Medical-device regulatory boundary (薬機法/PMDA/SaMD) — R0..R2 software+simulation+non-ionizing non-regulated only; regulated modalities R3-gated to licensed pathway + qualified operator + Council Lv7+",
+      "G5": "Emergency red-flag escalation — shared keyword lexicon with mitate/iyashi/kokoro; red-flag → immediate 受診/救急, never 'wait for next scan'",
+      "G6": "Per-scan consent (default-deny, revocable, scope-bound; APPI 要配慮 explicit consent; minors via guardian + hagukumi)",
+      "G7": "Uncertainty-honest / no false precision — every attribution carries calibrated confidence + 所見≠確定原因 disclaimer (structural)",
+      "G8": "Self-referenced Wellbecoming — compare to member's OWN prior trajectory; no population ranking / health-score leaderboard",
+      "G9": "Energy minimization / ALARA — prefer non-ionizing; no casual ionizing radiation; ionizing = referral to licensed facility, never routine pod",
+      "G10": "Verified-modality-only / anti-pseudoscience — only modalities in capability ledger with declared evidence grade may emit; bio-resonance/aura/波動/quantum EXCLUDED",
+      "G11": "Outward-gated — real hardware pod + real member scans require Council + licensed oversight + R3; R0 design-only",
+      "G12": "No commercial medical-imaging cloud / PACS / diagnostic-SaaS / commercial imaging-AI (Charter Rider §2(e)+§2(c)); kotoba-native",
+      "G13": "No payroll for operators (vocation-flow L5 stewards)",
+      "G14": "Murakumo-only inference (no vendor medical-AI)"
+    }
+  },
+  "nonGoals": {
+    "description": "12 explicitly excluded scopes",
+    "goals": {
+      "N1": "NOT a diagnosis (医師法 — mitate + licensed clinician)",
+      "N2": "NOT a treatment device (iyashi + yakushi)",
+      "N3": "NOT allergen identification by imaging (biochemistry; microsampling not 'scanning')",
+      "N4": "NOT a replacement for clinical MRI/CT/PET in licensed facilities",
+      "N5": "NOT a population health-score / ranking / leaderboard",
+      "N6": "NOT a 法定健診 / statutory health-check substitute / insurance",
+      "N7": "NOT a commercial wellness-pod product (no SaaS sale)",
+      "N8": "NOT pseudoscience modalities (bio-resonance / aura / 全身波動 / quantum)",
+      "N9": "NOT involuntary / surveillance scanning",
+      "N10": "NOT a biometric-identity database (30-day rotating pseudonym DID)",
+      "N11": "NOT genetic testing (separate gated domain)",
+      "N12": "NOT for minors / incapacitated without guardian + hagukumi consent"
+    }
+  },
+  "roadmap": [
+    {
+      "phase": "R0",
+      "date": "2026-05-31",
+      "scope": "Scaffold only. 6 cells path-reserved (import-time RuntimeError per G2). 6 Lexicon skeletons. modalityCapability ledger seed (evidence grades + regulatory classes). Simulation data-model. manifest + README + CLAUDE.md. NO hardware.",
+      "murakumoFleet": "No deployment",
+      "gate": "ADR-2605312700 (PROPOSED)"
+    },
+    {
+      "phase": "R1",
+      "date": "post-Bootstrap-Council + ADR ratify Lv6+ ≥3 + ≥1 licensed-MD on Council medical advisory + ADR-2605181100 encrypted-record framework production-deployed + mitate R1 active",
+      "scope": "Software fusion + attribution on SIMULATED + consented research data only. modalityCapability ledger Council-ratified. Full L1+L2 schema. signal_fusion + attribution + modality_registry cells.",
+      "murakumoFleet": "naphtali (single node)",
+      "gate": "Future ADR + Council Lv6+ ≥3 + ≥1 licensed-MD"
+    },
+    {
+      "phase": "R2",
+      "date": "post-R1 + 30-day public objection + medical-device regulatory-pathway assessment filed + ≥20-participant consented research protocol Council-reviewed",
+      "scope": "Consented research PILOT, non-ionizing non-regulated modalities ONLY (3D optical posture / thermography / bioimpedance). Strictly non-diagnostic. + scan_session + wellbecoming_track + triage_referral. ≤20 participants.",
+      "murakumoFleet": "naphtali + gad (2 nodes)",
+      "gate": "Future ADR + Council Lv6+ ≥4 + 30-day public + regulatory-pathway assessment"
+    },
+    {
+      "phase": "R3",
+      "date": "post-R2 + Council Lv7+ unanimity + 薬機法/medical-device regulatory pathway cleared + qualified-operator + co-located licensed-clinician (mitate)",
+      "scope": "Full pod incl. regulated modalities via licensed-medical-device pathway; real member scans. Community-scale. Required gate before any energy-emitting / microsampling modality.",
+      "murakumoFleet": "Full 10-node fleet",
+      "gate": "Future ADR + Council Lv7+ unanimity + regulatory clearance + 60-day public"
+    }
+  ],
+  "references": {
+    "adr": {
+      "master": "/90-docs/adr/2605312700-kizashi-noninvasive-multimodal-bodyscan-tier-b-actor-r0.md",
+      "ladder": "/90-docs/adr/2605261000-labor-liberation-transition-mechanism.md",
+      "privacy": "/90-docs/adr/2605181100-mst-encrypted-records-signal-keywrap.md",
+      "metadataLeak": "/90-docs/adr/2605181200-mst-encrypted-metadata-leak-reduction.md",
+      "missionCharter": "/90-docs/adr/2605192100-etzhayyim-mission-charter.md",
+      "publicFund": "/90-docs/adr/2605192145-etzhayyim-public-fund-architecture.md",
+      "charterRider": "/90-docs/adr/2605192200-etzhayyim-ip-free-release-charter-rider.md",
+      "murakumoOnly": "/90-docs/adr/2605215000-etzhayyim-inference-murakumo-only-no-runpod.md",
+      "siblingMitate": "/90-docs/adr/2605260100-mitate-diagnostic-routing-charter.md",
+      "siblingIyashi": "/90-docs/adr/2605263000-iyashi-clinical-care-provider-tier-b-actor-r0.md",
+      "siblingKokoro": "/90-docs/adr/2605263700-kokoro-mental-health-tier-b-actor-r0.md",
+      "chigiriCrossActor": "/90-docs/adr/2605262700-chigiri-legal-procedure-tier-b-actor-r0.md",
+      "toritateCrossActor": "/90-docs/adr/2605262900-toritate-accounting-audit-tier-b-actor-r0.md"
+    }
+  },
+  "yirah": {
+    "adr": "2606112200",
+    "note": "yir'ah invariant-bundle declarations (ADR-2606112200 D4) — adopted only where meaningful for this actor's scope; each declaration is grounded in the cited existing gates.",
+    "declared": {
+      "non-adjudicating": "NON-DIAGNOSTIC by constitution (G3, 医師法 §17) — 兆候 + consult recommendation ONLY; 'never diagnosis/treatment/adjudication' is the gate's own text",
+      "distribution-not-point": "attribution is PROBABILISTIC only (G3) — signs are sensed as likelihoods with a consult recommendation, never asserted as a point diagnosis",
+      "no-score-of-soul": "a body scan never becomes a score of the person — non-diagnostic boundary (G3) + anti-pseudoscience discipline; signs are sensed, persons are not rated",
+      "map-not-target": "biometric scan = 要配慮 PII, encrypted envelope MANDATORY with plaintext rejected at schema layer (G2) — a scan can never become a locator or registry entry"
+    }
+  }
+}
