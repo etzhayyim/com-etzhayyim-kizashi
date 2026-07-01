@@ -84,7 +84,7 @@ shared, not re-invented.
 # 6 cell stubs import-raise (R0 ceiling — no plaintext biometric flow):
 for c in kizashi_modality_registry kizashi_signal_fusion kizashi_attribution \
          kizashi_scan_session kizashi_wellbecoming_track kizashi_triage_referral; do
-  python3 -c "import importlib.util as u; s=u.spec_from_file_location('$c','40-engine/kotoba/crates/kotoba-kotodama/cells/$c/cell.py'); m=u.module_from_spec(s);
+  python3 -c "import importlib.util as u; s=u.spec_from_file_location('$c','kotoba-lang/kotodama-cells/$c/cell.py'); m=u.module_from_spec(s);
 try: s.loader.exec_module(m); print('FAIL $c')
 except RuntimeError as e: print('ok $c', 'R0 scaffold' in str(e))"
 done

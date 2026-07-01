@@ -171,7 +171,7 @@ R3 adds regulated modalities via licensed-medical-device pathway.
 ## Build & Deploy
 
 **R0 status**: Scaffold only. All 6 cell stubs exist under
-`40-engine/kotoba/crates/kotoba-kotodama/cells/kizashi_*/cell.py` and raise `RuntimeError`
+`kotoba-lang/kotodama-cells/kizashi_*/cell.py` and raise `RuntimeError`
 on import (intentional — prevents plaintext biometric data flow).
 
 **Smoke test** (import-only; R0 cells deliberately fail import):
@@ -181,7 +181,7 @@ for c in kizashi_modality_registry kizashi_signal_fusion kizashi_attribution \
          kizashi_scan_session kizashi_wellbecoming_track kizashi_triage_referral; do
   python3 -c "
 import importlib.util
-s = importlib.util.spec_from_file_location('$c.cell', '40-engine/kotoba/crates/kotoba-kotodama/cells/$c/cell.py')
+s = importlib.util.spec_from_file_location('$c.cell', 'kotoba-lang/kotodama-cells/$c/cell.py')
 m = importlib.util.module_from_spec(s)
 try: s.loader.exec_module(m); print('✘ $c did NOT raise')
 except RuntimeError as e: print('✓ $c', 'R0 scaffold' in str(e))
