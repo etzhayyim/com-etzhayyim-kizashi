@@ -38,6 +38,20 @@ Design + data-model + simulation only. **No hardware exists.** All 6
 cells raise `RuntimeError` on import (prevents plaintext biometric
 data flow before R1's Council-attested encrypted-record framework).
 
+## Migration Boundary
+
+`kotoba-lang/kotodama-cells/kizashi_*` is legacy source
+during migration. The domain actor implementation belongs here as pure `.cljc`
+plans under `src/kizashi/murakumo.cljc`: the six sign-sensing cells map to
+`scanSessionAttestation`, `attributionReport`, `wellbecomingTrajectory`,
+`triageReferral`, and `modalityCapability` MST records. `signal_fusion` remains
+transient-only and emits no write effect. The boundary is fail-closed: missing
+consent, encrypted-biometric, non-diagnostic, medical-device-boundary,
+verified-modality, uncertainty-honest, self-referenced Wellbecoming,
+Murakumo-only, and clinical-referral attestations produce no write effects. Host
+placement remains in `kotoba-lang/murakumo`; any AT Protocol/PDS surface remains
+in `gftdcojp/app-aozora`.
+
 See [`CLAUDE.md`](./CLAUDE.md) for architecture, cross-actor wiring,
 R1 activation triggers, and honest limits; the master ADR is
 [`90-docs/adr/2605312700-...`](../../90-docs/adr/2605312700-kizashi-noninvasive-multimodal-bodyscan-tier-b-actor-r0.md).
