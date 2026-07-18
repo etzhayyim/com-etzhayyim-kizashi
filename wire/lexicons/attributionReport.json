@@ -1,0 +1,66 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.kizashi.attributionReport",
+  "description": "Probabilistic, NON-DIAGNOSTIC cause-contribution report. G3 STRUCTURAL (医師法 §17): schema FORBIDS diagnosis/prescription/treatmentPlan fields (additionalProperties=false at R1). G7 STRUCTURAL: confidence + disclaimer + consultRecommendation are REQUIRED on every report. kizashi senses; mitate diagnoses. Outputs 兆候 + contribution weights with calibrated uncertainty + a recommendation to consult — never an adjudication.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": [
+          "createdAt",
+          "scanSessionCid",
+          "symptomDomain",
+          "contributions",
+          "confidence",
+          "disclaimer",
+          "consultRecommendation"
+        ],
+        "properties": {
+          "createdAt": {"type": "string", "format": "datetime"},
+          "scanSessionCid": {"type": "string"},
+          "symptomDomain": {
+            "type": "string",
+            "knownValues": ["lower-back", "shoulder-neck", "nasal-airway", "allergy-systemic", "inflammation-local", "inflammation-systemic", "other"],
+            "description": "The physical-burden domain this report addresses (腰痛/肩こり/鼻詰まり/アレルギー/炎症/etc.)"
+          },
+          "contributions": {
+            "type": "array",
+            "description": "Probabilistic cause-contribution weights (sum incl. an 'uncertain' residual). Each item names a CANDIDATE CONTRIBUTING FACTOR (e.g. posture-derived, structural-suggestion, circulation), NEVER a disease.",
+            "items": {"type": "ref", "ref": "#contribution"}
+          },
+          "confidence": {
+            "type": "string",
+            "knownValues": ["low", "moderate", "high"],
+            "description": "G7 REQUIRED: calibrated confidence. 'high' still does not imply a confirmed cause."
+          },
+          "disclaimer": {
+            "type": "string",
+            "const": "所見は確定原因ではありません。受診を推奨します (This is a sign, not a confirmed cause; please consult a clinician).",
+            "description": "G7 REQUIRED: structural non-diagnostic disclaimer"
+          },
+          "consultRecommendation": {
+            "type": "string",
+            "knownValues": ["routine-consult", "soon-consult", "urgent-consult", "emergency"],
+            "description": "G3/G5: recommendation to consult; 'emergency' triggers triageReferral emergencyFlag"
+          },
+          "modalityObservationCids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Provenance: the modalityObservation CIDs this attribution drew on"
+          },
+          "charterRiderScanPass": {"type": "boolean"}
+        }
+      }
+    },
+    "contribution": {
+      "type": "object",
+      "required": ["factor", "weightPermille"],
+      "properties": {
+        "factor": {"type": "string", "description": "candidate contributing factor (non-disease, e.g. posture-derived / structural-suggestion / circulation / uncertain-residual)"},
+        "weightPermille": {"type": "integer", "minimum": 0, "maximum": 1000, "description": "contribution weight in per-mille (0..1000 = 0..1.0); contributions across one symptomDomain sum to 1000 incl. an uncertain residual"}
+      }
+    }
+  }
+}

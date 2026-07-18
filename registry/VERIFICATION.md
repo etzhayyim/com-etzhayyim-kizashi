@@ -84,14 +84,14 @@ shared, not re-invented.
 # 6 cell stubs import-raise (R0 ceiling — no plaintext biometric flow):
 for c in kizashi_modality_registry kizashi_signal_fusion kizashi_attribution \
          kizashi_scan_session kizashi_wellbecoming_track kizashi_triage_referral; do
-  python3 -c "import importlib.util as u; s=u.spec_from_file_location('$c','kotoba-lang/kotodama-cells/$c/cell.py'); m=u.module_from_spec(s);
+  python3 -c "import importlib.util as u; s=u.spec_from_file_location('$c','40-engine/kotoba/crates/kotoba-kotodama/cells/$c/cell.py'); m=u.module_from_spec(s);
 try: s.loader.exec_module(m); print('FAIL $c')
 except RuntimeError as e: print('ok $c', 'R0 scaffold' in str(e))"
 done
 # 6 lexicons valid + non-diagnostic schema check:
-python3 70-tools/scripts/validate-lexicons.py --root 00-contracts/lexicons/com/etzhayyim/kizashi/
+python3 70-tools/scripts/validate-lexicons.py --root wire/lexicons/
 # attributionReport MUST NOT permit a diagnosis field (G3):
-python3 -c "import json; p=json.load(open('00-contracts/lexicons/com/etzhayyim/kizashi/attributionReport.json'))['defs']['main']['record']['properties']; assert 'diagnosis' not in p and 'prescription' not in p, 'G3 VIOLATION'; print('ok G3: no diagnosis/prescription field')"
+python3 -c "import json; p=json.load(open('wire/lexicons/attributionReport.json'))['defs']['main']['record']['properties']; assert 'diagnosis' not in p and 'prescription' not in p, 'G3 VIOLATION'; print('ok G3: no diagnosis/prescription field')"
 # docs registry sidecars in sync:
 python3 70-tools/scripts/docs/regen-registry.py --check
 ```

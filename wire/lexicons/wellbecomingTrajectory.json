@@ -1,0 +1,43 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.kizashi.wellbecomingTrajectory",
+  "description": "Self-referenced Wellbecoming trajectory. G2 STRUCTURAL: encryptedPayloadCid REQUIRED. G8 STRUCTURAL: baseline is the member's OWN prior scan ONLY — no population-norm / ranking / health-score field exists in the schema (anti-individualist 動的軌跡 ontology per ADR-2605192100). Emits delta-vs-self, never delta-vs-others.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": [
+          "createdAt",
+          "memberPseudonymDid",
+          "baselineScanSessionCid",
+          "currentScanSessionCid",
+          "encryptedPayloadCid"
+        ],
+        "properties": {
+          "createdAt": {"type": "string", "format": "datetime"},
+          "memberPseudonymDid": {
+            "type": "string",
+            "description": "30-day rotating pseudonym DID per ADR-2605181200"
+          },
+          "baselineScanSessionCid": {
+            "type": "string",
+            "description": "G8 REQUIRED: the member's OWN prior scanSessionAttestation CID (self-reference; population baseline structurally absent)"
+          },
+          "currentScanSessionCid": {"type": "string"},
+          "encryptedPayloadCid": {
+            "type": "string",
+            "description": "G2 REQUIRED: encrypted envelope containing the per-domain delta vectors"
+          },
+          "trajectoryDirection": {
+            "type": "string",
+            "knownValues": ["improving", "stable", "worsening", "mixed", "insufficient-history"],
+            "description": "Coarse self-referenced direction; precise deltas in encrypted payload"
+          },
+          "charterRiderScanPass": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

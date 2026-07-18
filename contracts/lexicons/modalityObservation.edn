@@ -1,0 +1,45 @@
+{:lexicon 1,
+ :id "com.etzhayyim.kizashi.modalityObservation",
+ :description
+ "Per-modality observation within a scan session. G2 STRUCTURAL: encryptedPayloadCid REQUIRED (raw + derived features held encrypted). G10: modalityId MUST exist in modalityCapability ledger. G9 (ALARA): ionizing modalities NEVER emit a routine-pod observation (referral-to-licensed-facility only). Aggregate public fields ONLY.",
+ :defs
+ {:main
+  {:type "record",
+   :key "tid",
+   :record
+   {:type "object",
+    :required
+    ["createdAt" "scanSessionCid" "modalityId" "encryptedPayloadCid"],
+    :properties
+    {:createdAt {:type "string", :format "datetime"},
+     :scanSessionCid
+     {:type "string",
+      :description "Parent scanSessionAttestation CID"},
+     :modalityId
+     {:type "string",
+      :description
+      "G10 REQUIRED: must resolve to a modalityCapability ledger entry with declared evidenceGrade + regulatoryClass",
+      :knownValues
+      ["optical-posture-3d"
+       "markerless-gait"
+       "infrared-thermography"
+       "bioimpedance"
+       "shear-wave-elastography"
+       "acoustic-rhinometry"
+       "rhinomanometry"
+       "breath-voc"
+       "microsampling-ige"
+       "microsampling-crp"]},
+     :encryptedPayloadCid
+     {:type "string",
+      :description
+      "G2 REQUIRED: encrypted envelope CID containing raw + derived features. Plaintext rejected."},
+     :captureQuality
+     {:type "string",
+      :knownValues ["good" "partial" "retake-recommended"],
+      :description "Coarse quality flag; no biometric values"},
+     :regulatedModalityClearanceCid
+     {:type "string",
+      :description
+      "G4: if modalityId is regulated (R3-gated), the licensed-medical-device-pathway clearance CID; absence rejects regulated modalities pre-R3"},
+     :charterRiderScanPass {:type "boolean"}}}}}}

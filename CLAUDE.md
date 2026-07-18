@@ -1,4 +1,4 @@
-# 20-actors/kizashi — CLAUDE.md
+# com-etzhayyim-kizashi — CLAUDE.md
 
 ## Identity
 
@@ -171,7 +171,7 @@ R3 adds regulated modalities via licensed-medical-device pathway.
 ## Build & Deploy
 
 **R0 status**: Scaffold only. All 6 cell stubs exist under
-`kotoba-lang/kotodama-cells/kizashi_*/cell.py` and raise `RuntimeError`
+`40-engine/kotoba/crates/kotoba-kotodama/cells/kizashi_*/cell.py` and raise `RuntimeError`
 on import (intentional — prevents plaintext biometric data flow).
 
 **Smoke test** (import-only; R0 cells deliberately fail import):
@@ -181,7 +181,7 @@ for c in kizashi_modality_registry kizashi_signal_fusion kizashi_attribution \
          kizashi_scan_session kizashi_wellbecoming_track kizashi_triage_referral; do
   python3 -c "
 import importlib.util
-s = importlib.util.spec_from_file_location('$c.cell', 'kotoba-lang/kotodama-cells/$c/cell.py')
+s = importlib.util.spec_from_file_location('$c.cell', '40-engine/kotoba/crates/kotoba-kotodama/cells/$c/cell.py')
 m = importlib.util.module_from_spec(s)
 try: s.loader.exec_module(m); print('✘ $c did NOT raise')
 except RuntimeError as e: print('✓ $c', 'R0 scaffold' in str(e))
@@ -206,7 +206,7 @@ Expected: all 6 raise `RuntimeError` with an "R0 scaffold" message.
 
 ## Modality capability ledger seed (G10 honesty registry)
 
-`registry/modalities.seed.json` — 14 entries binding each modality to
+`wire/registry/modalities.seed.json` — 14 entries binding each modality to
 `evidenceGrade` + `regulatoryClass` + `canDetect`/`cannotDetect` +
 `ionizing` + `phaseGate`:
 
@@ -229,10 +229,10 @@ cause-finding modalities are exactly the R3-gated regulated ones.
 
 ## Related Files
 
-- `/20-actors/kizashi/manifest.jsonld`
-- `/20-actors/kizashi/registry/modalities.seed.json` — modality capability ledger seed (G10)
-- `/20-actors/kizashi/README.md`
-- `/00-contracts/lexicons/com/etzhayyim/kizashi/` (6 Lexicon JSONs + README)
+- `/manifest.jsonld`
+- `/wire/registry/modalities.seed.json` — modality capability ledger seed (G10)
+- `/README.md`
+- `wire/lexicons/` (6 Lexicon JSONs + README)
 - `/90-docs/adr/2605312700-kizashi-noninvasive-multimodal-bodyscan-tier-b-actor-r0.md` — Master ADR
 - `/90-docs/adr/2605181100-mst-encrypted-records-signal-keywrap.md` — privacy envelope (G2)
 - `/90-docs/adr/2605181200-mst-encrypted-metadata-leak-reduction.md` — rotating pseudonym DID (N10)

@@ -57,7 +57,7 @@
     "noPayrollForOperators": "G13 — operators are vocation-flow L5 stewards; toritate.ledgerEntry.category excludes payroll/wage/salary/bonus/commission",
     "murakumoOnlyInference": "G14 — Murakumo-only inference per ADR-2605215000; vendor medical-AI PROHIBITED"
   },
-  "modalityCapabilityLedgerSeed": "registry/modalities.seed.json — 14 modalities (11 sensing + MRI/CT referral marker + 3 grade-X excluded pseudoscience); each binds evidenceGrade + regulatoryClass + canDetect/cannotDetect + ionizing + phaseGate; all verificationStatus=unverified-seed (G10 Council-ratify before R1 emission). R0..R2 may use ONLY phaseGate∈{R1,R2} + non-regulated-wellness + ionizing=false (optical-posture-3d / markerless-gait / infrared-thermography / bioimpedance).",
+  "modalityCapabilityLedgerSeed": "wire/registry/modalities.seed.json — 14 modalities (11 sensing + MRI/CT referral marker + 3 grade-X excluded pseudoscience); each binds evidenceGrade + regulatoryClass + canDetect/cannotDetect + ionizing + phaseGate; all verificationStatus=unverified-seed (G10 Council-ratify before R1 emission). R0..R2 may use ONLY phaseGate∈{R1,R2} + non-regulated-wellness + ionizing=false (optical-posture-3d / markerless-gait / infrared-thermography / bioimpedance).",
   "scope": {
     "phase": "R0 scaffold",
     "scopeBoundary": "Non-invasive multimodal capture → fusion → probabilistic non-diagnostic attribution → self-referenced Wellbecoming trajectory → triage referral; modality capability ledger",

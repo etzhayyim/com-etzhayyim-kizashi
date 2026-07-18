@@ -46,7 +46,7 @@ computed only against their OWN prior scans. Consequence for scale:
 
 ## Modality coverage scales by evidence + Council, NOT by demand or breadth
 
-Adding a modality is gated by the G10 ledger (`registry/modalities.seed.json` +
+Adding a modality is gated by the G10 ledger (`wire/registry/modalities.seed.json` +
 `VERIFICATION.md`), never by "look more comprehensive":
 
 | Principle | Rule |

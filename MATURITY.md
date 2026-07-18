@@ -8,7 +8,7 @@ iyashi treats. Non-diagnostic, anti-pseudoscience, encrypted, consent-bound.
 |---|---|
 | Lexicons | ✅ 6 under `com.etzhayyim.kizashi.*` (scanSession/modalityObservation/modalityCapability/attributionReport/triageReferral/wellbecomingTrajectory) |
 | Cells | 🟡 6 path-reserved (import-time RuntimeError per G2 privacy invariant) |
-| Manifest | ✅ `manifest.jsonld` — `constitutionalGates` (G1–G14) machine-readable |
+| Manifest | ✅ `manifest.edn` — `constitutionalGates` (G1–G14) machine-readable |
 | Tests | ✅ `methods/test_charter_gates.cljc` — **7 tests, green** (added 2026-06-17); `./run_tests.sh` |
 | Methods | 🟡 offline engine = R1 |
 
