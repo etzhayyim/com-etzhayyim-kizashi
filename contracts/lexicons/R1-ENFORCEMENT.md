@@ -51,7 +51,7 @@ catches drift between skeleton and planned enforcement before R1.
 ```bash
 python3 - <<'PY'
 import json, glob, os
-D='wire/lexicons/'
+D='wire/contracts/lexicons/'
 def rec(n): return json.load(open(f'{D}/{n}.json'))['defs']['main']['record']
 ok=True
 def chk(c,m):

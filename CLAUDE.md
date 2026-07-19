@@ -232,7 +232,7 @@ cause-finding modalities are exactly the R3-gated regulated ones.
 - `/manifest.jsonld`
 - `/wire/registry/modalities.seed.json` — modality capability ledger seed (G10)
 - `/README.md`
-- `wire/lexicons/` (6 Lexicon JSONs + README)
+- `wire/contracts/lexicons/` (6 generated Lexicon JSONs)
 - `/90-docs/adr/2605312700-kizashi-noninvasive-multimodal-bodyscan-tier-b-actor-r0.md` — Master ADR
 - `/90-docs/adr/2605181100-mst-encrypted-records-signal-keywrap.md` — privacy envelope (G2)
 - `/90-docs/adr/2605181200-mst-encrypted-metadata-leak-reduction.md` — rotating pseudonym DID (N10)
