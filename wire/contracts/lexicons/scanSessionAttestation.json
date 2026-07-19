@@ -1,0 +1,54 @@
+{
+  "lexicon" : 1,
+  "id" : "com.etzhayyim.kizashi.scanSessionAttestation",
+  "description" : "Per-scan-session attestation. G2 STRUCTURAL: encryptedPayloadCid REQUIRED; plaintext biometric content rejected at schema layer (R1 additionalProperties=false). Biometric scan data is 要配慮個人情報 (APPI). Member identity uses 30-day rotating pseudonym DID per ADR-2605181200 (N10 — not an identity database). Aggregate public fields ONLY (modality set, duration bucket); no biometric data in public fields.",
+  "defs" : {
+    "main" : {
+      "type" : "record",
+      "key" : "tid",
+      "record" : {
+        "type" : "object",
+        "required" : [ "createdAt", "memberPseudonymDid", "scanConsentCid", "modalitySet", "encryptedPayloadCid" ],
+        "properties" : {
+          "operatorPseudonymDid" : {
+            "type" : "string",
+            "description" : "Pod operator (L5 vocation-flow steward, G13); present from R3 (staffed pod)"
+          },
+          "charterRiderScanPass" : {
+            "type" : "boolean"
+          },
+          "kotobaDatomicAttestationCid" : {
+            "type" : "string"
+          },
+          "encryptedPayloadCid" : {
+            "type" : "string",
+            "description" : "G2 REQUIRED: ADR-2605181100 encrypted envelope CID containing all raw + derived biometric data. Plaintext content fields rejected at schema layer."
+          },
+          "durationMinBucket" : {
+            "type" : "string",
+            "knownValues" : [ "under-5", "5-15", "15-30", "over-30" ]
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "datetime"
+          },
+          "scanConsentCid" : {
+            "type" : "string",
+            "description" : "G6 REQUIRED: per-scan consent record (chigiri.consentRecord) CID; default-deny, revocable, scope-bound (APPI 要配慮 explicit consent)"
+          },
+          "memberPseudonymDid" : {
+            "type" : "string",
+            "description" : "30-day rotating pseudonym DID per ADR-2605181200 (N10 — no stable biometric identifier)"
+          },
+          "modalitySet" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "description" : "G10: modalityId list; each MUST exist in modalityCapability ledger with declared evidence grade. R0..R2 limited to non-ionizing non-regulated (optical-posture / thermography / bioimpedance)."
+          }
+        }
+      }
+    }
+  }
+}

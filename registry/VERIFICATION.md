@@ -89,9 +89,9 @@ try: s.loader.exec_module(m); print('FAIL $c')
 except RuntimeError as e: print('ok $c', 'R0 scaffold' in str(e))"
 done
 # 6 lexicons valid + non-diagnostic schema check:
-python3 70-tools/scripts/validate-lexicons.py --root wire/lexicons/
+python3 70-tools/scripts/validate-lexicons.py --root wire/contracts/lexicons/
 # attributionReport MUST NOT permit a diagnosis field (G3):
-python3 -c "import json; p=json.load(open('wire/lexicons/attributionReport.json'))['defs']['main']['record']['properties']; assert 'diagnosis' not in p and 'prescription' not in p, 'G3 VIOLATION'; print('ok G3: no diagnosis/prescription field')"
+python3 -c "import json; p=json.load(open('wire/contracts/lexicons/attributionReport.json'))['defs']['main']['record']['properties']; assert 'diagnosis' not in p and 'prescription' not in p, 'G3 VIOLATION'; print('ok G3: no diagnosis/prescription field')"
 # docs registry sidecars in sync:
 python3 70-tools/scripts/docs/regen-registry.py --check
 ```

@@ -1,0 +1,46 @@
+{
+  "lexicon" : 1,
+  "id" : "com.etzhayyim.kizashi.triageReferral",
+  "description" : "Non-diagnostic triage routing record. G5 STRUCTURAL: emergencyFlag + targetActor enum constrained to the clinical-adjudication actors (mitate/iyashi/kokoro). kizashi cannot close a clinical loop itself — it can only refer. Red-flag emergency routes immediately to 受診/救急, never 'wait for next scan'.",
+  "defs" : {
+    "main" : {
+      "type" : "record",
+      "key" : "tid",
+      "record" : {
+        "type" : "object",
+        "required" : [ "createdAt", "attributionReportCid", "targetActor", "emergencyFlag" ],
+        "properties" : {
+          "createdAt" : {
+            "type" : "string",
+            "format" : "datetime"
+          },
+          "attributionReportCid" : {
+            "type" : "string",
+            "description" : "Source attributionReport CID"
+          },
+          "targetActor" : {
+            "type" : "string",
+            "knownValues" : [ "mitate", "iyashi", "kokoro" ],
+            "description" : "G3/G5: routing target. mitate (diagnosis) / iyashi (clinical encounter) / kokoro (psychosocial — pain is multifactorial). kizashi never self-treats."
+          },
+          "emergencyFlag" : {
+            "type" : "boolean",
+            "description" : "G5 REQUIRED: true → immediate 受診/救急 routing via shared emergency-keyword lexicon; bypasses normal cadence"
+          },
+          "referralReason" : {
+            "type" : "string",
+            "knownValues" : [ "sign-warrants-diagnosis", "trajectory-worsening", "psychosocial-component", "red-flag-emergency", "member-request" ],
+            "description" : "Coarse routing rationale (non-diagnostic)"
+          },
+          "consentToShareCid" : {
+            "type" : "string",
+            "description" : "G6: member consent to share the (encrypted) scan provenance with the target actor"
+          },
+          "charterRiderScanPass" : {
+            "type" : "boolean"
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@
 (def ^:private here (.getParentFile (java.io.File. ^String *file*)))
 (def ^:private actor-dir (.getParentFile here))
 (def ^:private root (.. actor-dir getParentFile getParentFile))
-(def ^:private lexdir (java.io.File. root "wire/lexicons"))
+(def ^:private lexdir (java.io.File. root "wire/contracts/lexicons"))
 (defn- manifest []
   (let [e (clojure.edn/read-string (slurp (java.io.File. root "manifest.edn")))
         gm (into {} (map (fn [g] [(:gate/id g) g]) (:actor/gates e)))]
